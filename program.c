@@ -18,23 +18,22 @@ int main() {
 
         char[] airbnb = "Odessa is not Ternopol";
         double g = 16.555;
-    	int d = 3;
-        int number = 0x123A2;
-        bool meaning = true;
+    	int d = 8;
+        int number = 0x12AF5;
+        /*bool meaning = true;
         bool anotherOne = false;
-    	char pressToPayRespects  = 'F';
+    	char pressToPayRespects  = 'F';*/
 
-    	struct Books {
-           char  title[50];
-           char  author[50];
-           char  subject[100];
-           int   book_id;
-        };
+    	struct Countries {
+               char name[50];
+               char capital[50];
+               int population
+            };
 
-        struct Books Book1;
-        struct Books Book2;
+        struct Countries Country1;
+        struct Countries Country2;
 
-        Book1.book_id = 34.234;
+        Country1.name = "Brazil";
 
         return 0;
     }
