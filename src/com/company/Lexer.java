@@ -21,7 +21,7 @@ public class Lexer {
             if (line.charAt(i) == '*' && line.charAt(i + 1) == '/')
             {
                 inComment = false;
-                eatLine(line.substring(i + 2));
+                processing(line.substring(i + 2));
                 break;
             }
         }
@@ -38,7 +38,7 @@ public class Lexer {
                 word.append('\"');
                 Token token = new Token(Lexem.SYMBOL, word.toString());
                 lexems.add(token);
-                eatLine(line.substring(i + 1));
+                processing(line.substring(i + 1));
                 return;
             }
             else
@@ -69,7 +69,7 @@ public class Lexer {
                 else
                     token = new Token(Lexem.ERROR, w);
                 lexems.add(token);
-                eatLine(line.substring(i + 1));
+                processing(line.substring(i + 1));
                 return;
             }
         }
@@ -145,10 +145,10 @@ public class Lexer {
         if (inComment)
             processComment(l);
         else
-            eatLine(l);
+            processing(l);
     }
 
-    private void eatLine(String l)
+    private void processing(String l)
     {
         String line = l.trim();
         int length = line.length();
@@ -443,7 +443,7 @@ public class Lexer {
                 else
                     token = new Token(Lexem.ERROR, w);
                 lexems.add(token);
-                eatLine(line.substring(i));
+                processing(line.substring(i));
                 return;
             }
         }
@@ -477,7 +477,7 @@ public class Lexer {
                 else
                     token = new Token(Lexem.ERROR, w);
                 lexems.add(token);
-                eatLine(line.substring(i));
+                processing(line.substring(i));
                 return;
             }
         }
